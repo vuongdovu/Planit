@@ -7,11 +7,13 @@ WORKDIR /app
 # Set environment variable for Django settings module
 ENV DJANGO_SETTINGS_MODULE=config.settings
 
-# Copy project files
-COPY . .
+COPY requirements.txt .
 
 # Install dependencies
 RUN pip install -r requirements.txt
+
+# Copy project files
+COPY . .
 
 # Expose port for Django
 EXPOSE 8000

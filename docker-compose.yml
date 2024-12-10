@@ -1,4 +1,4 @@
-version: "3.8"
+# version: "3.8"
 services:
   backend:
     build:
@@ -11,6 +11,11 @@ services:
       - db
     environment:
       - DJANGO_SETTINGS_MODULE=backend.settings
+      - DB_USER=postgres
+      - DB_NAME=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=db
+      - DB_PORT=5432
   frontend:
     build:
       context: ./frontend
@@ -19,9 +24,9 @@ services:
     volumes:
       - ./frontend:/app
   db:
-    image: postgres:15
+    image: postgres:17
     environment:
-      POSTGRES_USER: user
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: mydatabase
     ports:
