@@ -1,17 +1,10 @@
-# Use Node.js as base image
-FROM node:18
+FROM node:16-alpine
 
-# Set working directory
-WORKDIR /app
+WORKDIR /app/frontend/
 
-# Copy project files
-COPY . .
-
-# Install dependencies
+COPY package*.json /app/frontend/
 RUN npm install
 
-# Expose port for React
-EXPOSE 3000
+COPY . /app/frontend/
 
-# Run React app
 CMD ["npm", "start"]
