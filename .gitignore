@@ -114,3 +114,9 @@ stylelint.config.js
 # Logs
 logs/
 *.log
+
+# PostgreSQL data directory
+data/
+
+# Docker volumes
+*/data
